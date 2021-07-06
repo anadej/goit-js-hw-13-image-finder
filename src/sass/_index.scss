@@ -1,0 +1,106 @@
+li {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  border-top: 10px;
+  background-color: aqua;
+}
+
+p {
+  font-size: 14px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: search;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.search-form_input {
+  display: block;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -10px;
+  margin-left: -10px;
+}
+
+.gallery_item {
+  background-color: bisque;
+  margin-top: 15px;
+  margin-left: 15px;
+  width: calc((100% - 90px) / 3);
+}
+
+.stats {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  // padding: 15 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 18px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+.load-more-btn {
+  display: block;
+  width: 150px;
+  height: 50px;
+  margin: 20px auto;
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  border: grey 1px solid;
+  border-radius: 5px;
+
+  &:hover,
+  &:focus {
+    background-color: blue;
+    color: white;
+    outline: none;
+  }
+
+  &.is-hidden {
+    display: none;
+  }
+}
