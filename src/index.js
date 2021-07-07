@@ -9,20 +9,25 @@ import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
 
 const refs = {
-  searchFormRef: document.querySelector('.search-form_input'),
+  searchFormRef: document.querySelector('.search-form'),
+  searchInputRef: document.querySelector('.search-form_input'),
   galleryRef: document.querySelector('.gallery'),
   loadMoreBtn: document.querySelector('.load-more-btn'),
 };
 
-refs.searchFormRef.addEventListener('input', debounce(onInputImgSearch, 500));
+refs.searchFormRef.addEventListener('submit', onInputImgSearch);
+// refs.searchInputRef.addEventListener('input', debounce(onInputImgSearch, 500));
 refs.loadMoreBtn.addEventListener('click', onLoadMore);
-let page = 1;
+let page;
 let inputQuery;
 
 function onInputImgSearch(e) {
+  e.preventDefault();
+  inputQuery = e.currentTarget.elements.query.value;
+  //   inputQuery = e.target.value;
   refs.galleryRef.innerHTML = '';
-  inputQuery = e.target.value;
-  fetchImages(inputQuery).then(data => {
+  page = 1;
+  fetchImages(inputQuery, page).then(data => {
     checkLastPage(data);
     renderGallery(data);
   });
