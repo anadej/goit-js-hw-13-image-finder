@@ -33,6 +33,7 @@ function onLoadMore() {
     checkLastPage(data);
     renderGallery(data);
   });
+  scrollIntoView(); //прокрутка к последней li
 }
 
 function scrollIntoView() {
@@ -64,5 +65,4 @@ function checkLastPage({ totalHits }) {
 
 function renderGallery({ hits }) {
   refs.galleryRef.insertAdjacentHTML('beforeend', imgCardTpl(hits));
-  scrollIntoView(); //прокрутка к последней li
 }
