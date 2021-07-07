@@ -32,11 +32,12 @@ function onLoadMore() {
   fetchImages(inputQuery, ++page).then(data => {
     checkLastPage(data);
     renderGallery(data);
+    scrollIntoView(); //прокрутка к последней li
   });
-  scrollIntoView(); //прокрутка к последней li
 }
 
 function scrollIntoView() {
+  console.log(refs.galleryRef.lastElementChild);
   refs.galleryRef.lastElementChild.scrollIntoView({
     behavior: 'smooth',
     block: 'end',
