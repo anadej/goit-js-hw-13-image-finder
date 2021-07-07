@@ -36,15 +36,13 @@ function onLoadMore() {
 }
 
 function scrollIntoView() {
-  refs.galleryRef.lastChild.scrollIntoView({
+  refs.galleryRef.lastElementChild.scrollIntoView({
     behavior: 'smooth',
     block: 'end',
   });
 }
 
 function checkLastPage({ totalHits }) {
-  console.log(page);
-  console.log(Math.ceil(totalHits / 12));
   if (page === Math.ceil(totalHits / 12)) {
     alert({
       text: 'Download last page',
@@ -66,4 +64,5 @@ function checkLastPage({ totalHits }) {
 
 function renderGallery({ hits }) {
   refs.galleryRef.insertAdjacentHTML('beforeend', imgCardTpl(hits));
+  scrollIntoView(); //прокрутка к последней li
 }
